@@ -1,0 +1,27 @@
+<section id="contacto" class="max-w-7xl mx-auto px-6 py-20">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div revealOnView>
+            <div class="mt-6 space-y-3">
+                <a [href]="'https://wa.me/52XXXXXXXXXX?text=' + encodeURIComponent('Hola, me interesa un sitio premium.')" target="_blank" class="block w-max rounded-xl px-6 py-3 bg-black text-white shadow-md transition duration-300 hover:-translate-y-0.5">
+           WhatsApp</a>
+                <a href="mailto:contacto@tu-dominio.com" class="block w-max rounded-xl px-6 py-3 bg-white border border-black/10 shadow-[0_10px_25px_rgba(0,0,0,.08)]">contacto@tu-dominio.com</a>
+            </div>
+        </div>
+
+        <form class="bg-white rounded-2xl p-6 shadow-[0_10px_25px_rgba(0,0,0,.08)] border border-black/5 grid gap-4" (ngSubmit)="submit()">
+            <input required [(ngModel)]="model.name" name="name" placeholder="Nombre" class="rounded-xl border border-black/10 px-4 py-3" />
+            <input required type="email" [(ngModel)]="model.email" name="email" placeholder="Correo" class="rounded-xl border border-black/10 px-4 py-3" />
+            <input [(ngModel)]="model.phone" name="phone" placeholder="Teléfono / WhatsApp" class="rounded-xl border border-black/10 px-4 py-3" />
+            <textarea rows="4" [(ngModel)]="model.message" name="message" placeholder="Cuéntanos de tu proyecto" class="rounded-xl border border-black/10 px-4 py-3"></textarea>
+
+            <button type="submit" [disabled]="loading" class="rounded-xl px-6 py-3 bg-black text-white shadow-md transition duration-300 hover:-translate-y-0.5">
+        {{ loading ? 'Enviando…' : 'Enviar' }}
+      </button>
+
+            <p *ngIf="done" class="text-sm text-green-700">¡Enviado! Te contactamos en breve.</p>
+            <p *ngIf="error" class="text-sm text-red-700">{{ error }}</p>
+
+            <p class="text-xs text-neutral-500">* Demo. Integramos envío real (email/WhatsApp) en el proyecto.</p>
+        </form>
+    </div>
+</section>

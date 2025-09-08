@@ -1,0 +1,15 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/server",
+    "target": "es2022",
+    "module": "es2022",              // (o el que ya tengas para server)
+    "moduleResolution": "node",
+    "types": ["node"],
+    "esModuleInterop": true,         // <-- clave
+    "allowSyntheticDefaultImports": true, // <-- clave
+    "skipLibCheck": true
+  },
+  "files": ["src/main.server.ts", "server.ts"]
+}

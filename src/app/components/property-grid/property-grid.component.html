@@ -1,0 +1,23 @@
+<section id="propiedades" class="max-w-7xl mx-auto px-6 py-20">
+    <div class="flex items-end justify-between gap-6">
+        <div class="max-w-xl" revealOnView>
+            <h2 class="font-[Playfair_Display] text-4xl">Mobiliario destacado</h2>
+            <p class="mt-2 text-neutral-700">Catálogo con filtros reales y microinteracciones.</p>
+        </div>
+        <div class="hidden md:flex gap-3" revealOnView>
+            <select [(ngModel)]="sort" class="rounded-xl border border-black/10 bg-white px-4 py-2 shadow-[0_10px_25px_rgba(0,0,0,.08)]">
+        <option [ngValue]="'none'">Ordenar precio</option>
+        <option [ngValue]="'asc'">Menor a mayor</option>
+        <option [ngValue]="'desc'">Mayor a menor</option>
+      </select>
+
+            <select [(ngModel)]="kind" class="rounded-xl border border-black/10 bg-white px-4 py-2 shadow-[0_10px_25px_rgba(0,0,0,.08)]">
+        <option>Todos</option><option>Recamaras</option><option>Acabados</option><option>Mesas</option>
+      </select>
+        </div>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <app-property-card *ngFor="let p of filtered" [image]="p.image" [title]="p.title" [meta]="p.meta" [price]="p.priceLabel" />
+    </div>
+</section>
